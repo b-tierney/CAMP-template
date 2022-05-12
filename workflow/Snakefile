@@ -1,0 +1,35 @@
+"""Main module."""
+
+
+import os
+from os.path import basename, join
+import pandas as pd
+from utils import *
+
+
+# Load program parameters and resources
+configfile: '/path/to/parametersfile'
+configfile: '/path/to/configfile'
+
+
+# Load and/or make the working directory structure
+dirs = Workflow_Dirs(config['work_dir'], 'binning')
+
+
+# Load sample names and input files 
+SAMPLES = ingest_samples(config['samples'], dirs.TMP)
+
+
+# --- Workflow output --- #
+
+rule all:
+    input:
+        join(dirs.OUT, 'final_reports', 'samples.csv') # sample name, bin directories
+
+
+# --- Workflow modules --- #
+
+
+
+
+
